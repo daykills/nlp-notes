@@ -5,4 +5,4 @@ Sentiment Analysis
  - preprocessing: string to words | ngrams
     - tokenization
        - whitespace tokenization. example: was great! -> {was great !}
-       - stop word removal.
+       - [sometimes] stop word removal.stopwords are generally function words like the, an and etc..
