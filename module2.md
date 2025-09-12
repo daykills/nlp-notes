@@ -6,8 +6,8 @@ predict ŷ = argmax_k w_k · x
 if ŷ != y:
     w_y      += x
     w_ŷ      -= x
-# else: no update
 
+```
 initialize w[1..K] = 0
 for epoch = 1..T:
     shuffle(training_set)
@@ -17,3 +17,4 @@ for epoch = 1..T:
             w[y]     = w[y]     + x
             w[y_hat] = w[y_hat] - x
 return w
+```
