@@ -20,7 +20,7 @@ return w
 ```
 
 
-- Neural Net Training, Optimization
+### Neural Net Training, Optimization
   batching: Update the model after computing the loss/gradients on each batch.
             This reduces variance compared to single-sample updates and uses less memory than full-batch.
   ```
