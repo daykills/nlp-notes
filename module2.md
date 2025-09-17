@@ -18,10 +18,12 @@ for epoch = 1..T:
             w[y_hat] = w[y_hat] - x
 return w
 ```
+### Neural Net Implementation
+- Pytorch: define computations that provides easy access to drivatives or gradients.
 
 
 ### Neural Net Training, Optimization
-  batching: Update the model after computing the loss/gradients on each batch.
+  - batching: Update the model after computing the loss/gradients on each batch.
             This reduces variance compared to single-sample updates and uses less memory than full-batch.
   ```
   import torch
@@ -47,3 +49,11 @@ return w
         loss.backward()
         optimizer.step()
 ```
+- Initialization (not zero, not large)
+  1. Zero Initialization: Not recommended for weights (all neurons become symmetric and learn the same thing). Biases can safely be     initialized to 0.
+  2. Initialize too large and cells are saturated.
+  3. Use initializzer: Xavier Guerrero
+- Dropout: zero out parts of the network during training to prevent overfitting, use whole network at test time.
+- Optimizer: Adam
+
+
