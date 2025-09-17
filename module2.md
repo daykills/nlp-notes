@@ -18,3 +18,32 @@ for epoch = 1..T:
             w[y_hat] = w[y_hat] - x
 return w
 ```
+
+
+- Neural Net Training, Optimization
+  batching: Update the model after computing the loss/gradients on each batch.
+            This reduces variance compared to single-sample updates and uses less memory than full-batch.
+  ```
+  import torch
+  from torch.utils.data import DataLoader, TensorDataset
+  
+  # Example dataset
+  X = torch.randn(1000, 20)   # 1000 samples, 20 features
+  y = torch.randint(0, 2, (1000,))  # binary labels
+  
+  # Create DataLoader with batching
+  dataset = TensorDataset(X, y)
+  dataloader = DataLoader(dataset, batch_size=64, shuffle=True)
+  
+  # Training loop
+  for epoch in range(10):
+      for batch_X, batch_y in dataloader:
+          # Forward pass
+          y_pred = model(batch_X)
+          loss = criterion(y_pred, batch_y)
+
+        # Backward pass
+        optimizer.zero_grad()
+        loss.backward()
+        optimizer.step()
+```
