@@ -7,7 +7,7 @@ Key Idea：
 - This means that relationships between words can be learned. For example: vector("king") - vector("man") + vector("woman") ≈ vector("queen").
 
 
-# Skip-gram
+### Skip-gram
 - predict the context words from the target
 
 Defination:  
@@ -53,3 +53,56 @@ Step 1: Generate training pairs
 (and, cats), (and, dogs)
 (dogs, and)
 ```
+
+
+
+
+
+
+### Applying embeddings in the deep networks
+- Map from word indices to imbeddings at the first layer of the network
+  ···
+  句子: "the cat sat"
+
+        ┌────────────┐
+        │   单词表   │   词汇表大小 V=5
+        │ "the": 0   │
+        │ "cat": 1   │
+        │ "sat": 2   │
+        │ "on" : 3   │
+        │ "mat": 4   │
+        └────────────┘
+                │
+                ▼
+单词 → 索引: ["the", "cat", "sat"] → [0, 1, 2]
+                │
+                ▼
+     One-hot 向量 (长度=V)
+     "cat" → [0, 1, 0, 0, 0]
+                │
+                ▼
+ ┌─────────────────────────┐
+ │    Embedding 矩阵 E     │   大小 = (V × d)，比如 (5 × 3)
+ │ "the": [ 0.2, -0.1, 0.5]│
+ │ "cat": [-0.3,  0.8, 0.1]│
+ │ "sat": [ 0.7,  0.4,-0.6]│
+ │ "on" : [-0.2, -0.5, 0.9]│
+ │ "mat": [ 0.1,  0.3, 0.7]│
+ └─────────────────────────┘
+                │
+                ▼
+Embedding Lookup
+"cat"(索引=1) → [-0.3, 0.8, 0.1]
+"sat"(索引=2) → [ 0.7, 0.4,-0.6]
+"the"(索引=0) → [ 0.2,-0.1, 0.5]
+
+cat" (index=1) 直接取第 1 行 → [-0.3, 0.8, 0.1]。
+这样就把词变成了一个稠密向量。
+---
+
+最终得到的句子向量序列:
+这些向量会送进后续网络 (RNN, CNN, Transformer 等)。
+在训练过程中，embedding 矩阵里的行会更新，从而让相似词的向量靠近。
+[ [0.2,-0.1,0.5], [-0.3,0.8,0.1], [0.7,0.4,-0.6] ]
+···
+  
