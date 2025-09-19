@@ -110,7 +110,8 @@ Step 1: Generate training pairs
   -  Can work reasonably well.
 - Approach 2: Init word embeddings using GloVe, keep fixed.（就像给学生一本现成的字典（GloVe），他们直接有基础知识，再在具体任务上应用）
   - Faster because no need to update these parameters.
-- Approach 3: 
+- Approach 3: initialize word embeddings GloVe, fine-tune
+   -  Works best for some tasks
 
 
 
