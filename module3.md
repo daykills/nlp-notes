@@ -38,7 +38,18 @@ Procedure:
    - Repeat for many epochs over the corpus.
    - Adjust weights so that words appearing in similar contexts end up with similar embeddings.
      
+Skip-gram Example (tiny corpus)
+```
 
+Sentence: "I like cats and dogs"
+Vocabulary: [I, like, cats, dogs, and]
+Vocab size = 5
+Window size = 1
 
-
-   
+Step 1: Generate training pairs
+(I, like)
+(like, I), (like, cats)
+(cats, like), (cats, and)
+(and, cats), (and, dogs)
+(dogs, and)
+```
