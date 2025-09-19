@@ -61,8 +61,8 @@ Step 1: Generate training pairs
 
 ### Applying embeddings in the deep networks
 - Map from word indices to imbeddings at the first layer of the network
-  ```
-  句子: "the cat sat"
+     ```
+     句子: "the cat sat"
 
         ┌────────────┐
         │   单词表   │   词汇表大小 V=5
@@ -104,5 +104,13 @@ Step 1: Generate training pairs
    这些向量会送进后续网络 (RNN, CNN, Transformer 等)。
    在训练过程中，embedding 矩阵里的行会更新，从而让相似词的向量靠近。
    [ [0.2,-0.1,0.5], [-0.3,0.8,0.1], [0.7,0.4,-0.6] ]
-```
-  
+   ```
+- Approach 1: Learn these embeddings as parameters from your data（就像让学生从零学起，所有知识都要自己学）
+  . Randomly initialize all parameters and learn with backpropagation.
+  . Can work reasonably well.
+- Approach 2: Init word embeddings using GloVe, keep fixed.（就像给学生一本现成的字典（GloVe），他们直接有基础知识，再在具体任务上应用）
+  . Faster because no need to update these parameters.
+- Approach 3: 
+
+
+
