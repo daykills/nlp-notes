@@ -55,8 +55,32 @@ Step 1: Generate training pairs
 ```
 
 
+### CBOW Model
+- The CBOW model predicts a target word given its context words.
 
+```
+Example sentence:
+"the cat sat on the mat"
+If target word = "sat" (index=2)
+Context window size k=2
+Context words = ["the", "cat", "on", "the"]
 
+Steps:
+Convert context words → embeddings.
+Average (or sum) the embeddings → get context vector.
+Feed into a linear layer → softmax over vocab.
+Train model to predict the target word "sat".
+
+🔹 Difference from Skip-gram
+
+CBOW: context → predict target
+Skip-gram: target → predict context
+
+👉 Example:
+
+CBOW: “the ___ sat on” → predict “cat”
+Skip-gram: “cat” → predict “the”, “sat”
+```
 
 
 ### Applying embeddings in the deep networks
