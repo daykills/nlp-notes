@@ -106,10 +106,10 @@ Step 1: Generate training pairs
    [ [0.2,-0.1,0.5], [-0.3,0.8,0.1], [0.7,0.4,-0.6] ]
    ```
 - Approach 1: Learn these embeddings as parameters from your data（就像让学生从零学起，所有知识都要自己学）
-  . Randomly initialize all parameters and learn with backpropagation.
-  . Can work reasonably well.
+  -  Randomly initialize all parameters and learn with backpropagation.
+  -  Can work reasonably well.
 - Approach 2: Init word embeddings using GloVe, keep fixed.（就像给学生一本现成的字典（GloVe），他们直接有基础知识，再在具体任务上应用）
-  . Faster because no need to update these parameters.
+  - Faster because no need to update these parameters.
 - Approach 3: 
 
 
