@@ -60,7 +60,7 @@ Step 1: Generate training pairs
 
 
 ### Applying embeddings in the deep networks
-- Map from word indices to imbeddings at the first layer of the network
+##### Map from word indices to imbeddings at the first layer of the network
      ```
      句子: "the cat sat"
 
