@@ -61,7 +61,7 @@ Step 1: Generate training pairs
 
 ### Applying embeddings in the deep networks
 - Map from word indices to imbeddings at the first layer of the network
-  ···
+  ```
   句子: "the cat sat"
 
         ┌────────────┐
@@ -104,5 +104,5 @@ cat" (index=1) 直接取第 1 行 → [-0.3, 0.8, 0.1]。
 这些向量会送进后续网络 (RNN, CNN, Transformer 等)。
 在训练过程中，embedding 矩阵里的行会更新，从而让相似词的向量靠近。
 [ [0.2,-0.1,0.5], [-0.3,0.8,0.1], [0.7,0.4,-0.6] ]
-···
+```
   
