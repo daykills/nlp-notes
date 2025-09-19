@@ -113,7 +113,11 @@ Step 1: Generate training pairs
 - Approach 3: initialize word embeddings GloVe, fine-tune
    -  Works best for some tasks
  
-### Deep Averaging Networks (DANs)
+### Deep Averaging Networks (DANs) - 向量取平均发生在 把单词 embedding 拿出来之后、送入全连接层之前，向量取平均之后，梯度会被均分，再传回去给每个单词 embedding。
+   - Instead of using RNNs (which read words sequentially) or CNNs (which look for n-gram patterns), DANs just average the embeddings of all words in the sentence.
+   - Then, they pass this averaged vector through one or more feed-forward (fully connected) layers (a “deep” network).
+   - Finally, a softmax layer produces a prediction (e.g., sentiment class, topic class).
+   
 
 
 
