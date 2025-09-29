@@ -1,3 +1,5 @@
+The deep understanding of text: not like string match, rather like conversation with the machine.
+ 
  # Linear Binary Classification
      Sentiment Analysis
       - Feature Extraction: words | ngrams to feature space
